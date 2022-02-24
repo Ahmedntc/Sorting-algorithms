@@ -52,8 +52,6 @@ void merge(int v[], int aux[], int ini, int meio, int fim) {
         else
             aux[i] = v[dir++];
     }
-
-    
     while (dir <= fim)
         aux[i++] = v[dir++];
     while (esq <= meio)
@@ -86,165 +84,36 @@ void imprime(int v[], int tamanho) {
     printf("\n");
 }
 
-
-
-
     int main(){
         clock_t t1, t2;
         clock_t t3, t4;
         double  deltaT ;
-
-        int *v0 = geraVetor(10);
-        //medindo merge
+        int size = 10;
+        int *v = malloc(sizeof(size));
+        for(int i = 0; i < 10; i++ ){          
+            v = geraVetor(size);
+            //mede merge
             t1 = clock();
-            ordena(array, 10);
+            ordena(array, size);
             t2 = clock();
             deltaT = ((double) (t2-t1)/CLOCKS_PER_SEC);// calculo da diferença do  tempo de execuçao 
             printf("\nO algoritmo de merge demorou %f segundos para ordenar o vetor", deltaT);
-        //medindo bubble
+            //mede bubble
             t3 = clock();
-            bubble_sort(array, 10);
+            bubble_sort(array, size);
             t4 = clock();
             deltaT = ((double) (t4-t3)/CLOCKS_PER_SEC);
             printf("\nO algoritmo de bubble demorou %f segundos para ordenar o vetor\n", deltaT);
-        
-        int *v1 = geraVetor(20);
-        //medindo merge
-            t1 = clock();
-            ordena(array, 20);
-            t2 = clock();
-            deltaT = ((double) (t2-t1)/CLOCKS_PER_SEC);
-            printf("\nO algoritmo de merge demorou %f segundos para ordenar o vetor", deltaT);
-        //medindo bubble
-            t3 = clock();
-            bubble_sort(array, 20);
-            t4 = clock();
-            deltaT = ((double) (t4-t3)/CLOCKS_PER_SEC);
-            printf("\nO algoritmo de bubble demorou %f segundos para ordenar o vetor\n", deltaT);
-        
-        int *v2 = geraVetor(100);
-        //medindo merge
-            t1 = clock();
-            ordena(array, 100);
-            t2 = clock();
-            deltaT = ((double) (t2-t1)/CLOCKS_PER_SEC);
-            printf("\nO algoritmo de merge demorou %f segundos para ordenar o vetor", deltaT);
-        //medindo bubble
-            t3 = clock();
-            bubble_sort(array, 100);
-            t4 = clock();
-            deltaT = ((double) (t4-t3)/CLOCKS_PER_SEC);
-            printf("\nO algoritmo de bubble demorou %f segundos para ordenar o vetor\n", deltaT);
-         
-        int *v3 = geraVetor(200);
-        //medindo merge
-            t1 = clock();
-            ordena(array, 200);
-            t2 = clock();
-            deltaT = ((double) (t2-t1)/CLOCKS_PER_SEC);
-            printf("\nO algoritmo de merge demorou %f segundos para ordenar o vetor", deltaT);
-        //medindo bubble
-            t3 = clock();
-            bubble_sort(array, 200);
-            t4 = clock();
-            deltaT = ((double) (t4-t3)/CLOCKS_PER_SEC);
-            printf("\nO algoritmo de bubble demorou %f segundos para ordenar o vetor\n", deltaT);
-         
-        int *v4 = geraVetor(1000);
-        //medindo merge
-            t1 = clock();
-            ordena(array, 1000);
-            t2 = clock();
-            deltaT = ((double) (t4-t3)/CLOCKS_PER_SEC);
-            printf("\nO algoritmo de merge demorou %f segundos para ordenar o vetor", deltaT);
-        //medindo bubble
-            t3 = clock();
-            bubble_sort(array, 1000);
-            t4 = clock();
-            deltaT = ((double) (t2-t1)/CLOCKS_PER_SEC);
-            printf("\nO algoritmo de bubble demorou %f segundos para ordenar o vetor\n", deltaT);
-        
+            free(v); 
 
-        int *v5 = geraVetor(2000);
-        //medindo merge
-            t1 = clock();
-            ordena(array, 2000);
-            t2 = clock();
-            deltaT = ((double) (t2-t1)/CLOCKS_PER_SEC);
-            printf("\nO algoritmo de merge demorou %f segundos para ordenar o vetor", deltaT);
-        //medindo bubble
-            t3 = clock();
-            bubble_sort(array, 2000);
-            t4 = clock();
-            deltaT = ((double) (t4-t3)/CLOCKS_PER_SEC);
-            printf("\nO algoritmo de bubble demorou %f segundos para ordenar o vetor\n", deltaT);
-        
-        int *v6 = geraVetor(10000);
-        //medindo merge
-            t1 = clock();
-            ordena(array, 10000);
-            t2 = clock();
-            deltaT = ((double) (t2-t1)/CLOCKS_PER_SEC);
-            printf("\nO algoritmo de merge demorou %f segundos para ordenar o vetor", deltaT);
-        //medindo bubble
-            t3 = clock();
-            bubble_sort(array, 10000);
-            t4 = clock();
-            deltaT = ((double) (t4-t3)/CLOCKS_PER_SEC);
-            printf("\nO algoritmo de bubble demorou %f segundos para ordenar o vetor\n", deltaT);
-        
-        int *v7 = geraVetor(20000);
-        //medindo merge
-            t1 = clock();
-            ordena(array, 20000);
-            t2 = clock();
-            deltaT = ((double) (t2-t1)/CLOCKS_PER_SEC);
-            printf("\nO algoritmo de merge demorou %f segundos para ordenar o vetor", deltaT);
-        //medindo bubble
-            t3 = clock();
-            bubble_sort(array, 20000);
-            t4 = clock();
-            deltaT = ((double) (t4-t3)/CLOCKS_PER_SEC);
-            printf("\nO algoritmo de bubble demorou %f segundos para ordenar o vetor\n", deltaT);
-    
-        int *v8 = geraVetor(100000);
-        //medindo merge
-            t1 = clock();
-            ordena(array, 100000);
-            t2 = clock();
-            deltaT = ((double) (t2-t1)/CLOCKS_PER_SEC);
-            printf("\nO algoritmo de merge demorou %f segundos para ordenar o vetor", deltaT);
-        //medindo bubble
-            t3 = clock();
-            bubble_sort(array, 100000);
-            t4 = clock();
-            deltaT = ((double) (t4-t3)/CLOCKS_PER_SEC);
-            printf("\nO algoritmo de bubble demorou %f segundos para ordenar o vetor\n", deltaT);
-        
-        int *v9 = geraVetor(200000);
-        //medindo merge
-            t1 = clock();
-            ordena(array, 200000);
-            t2 = clock();
-            deltaT = ((double) (t2-t1)/CLOCKS_PER_SEC);
-            printf("\nO algoritmo de merge demorou %f segundos para ordenar o vetor", deltaT);
-        //medindo bubble
-            t3 = clock();
-            bubble_sort(array, 200000);
-            t4 = clock();
-            deltaT = ((double) (t4-t3)/CLOCKS_PER_SEC);
-            printf("\nO algoritmo de bubble demorou %f segundos para ordenar o vetor\n", deltaT);
-
-        free(v0);
-        free(v1);
-        free(v2);
-        free(v3);
-        free(v4);
-        free(v5);
-        free(v6);
-        free(v7);
-        free(v8);
-        free(v9);
-
+            if( i % 2  == 0)
+            {
+                size *= 2;
+            }
+            else
+            {
+                size *= 5;                
+            }    
+        }
         return 0;
     }
